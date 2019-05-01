@@ -1,0 +1,9 @@
+﻿@page
+@model PostModel
+@{
+}
+<form method="post">
+    <input if="user_in" name="user_in" type="text" />
+    <button>Click</button>
+    @Html.Raw(ViewData["test"])
+</form>

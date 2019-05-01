@@ -1,0 +1,29 @@
+﻿@page
+@model AboutModel
+@{
+    ViewData["Title"] = "About";
+}
+<h2>@ViewData["Title"]</h2>
+
+<div class="row">
+    <div class="col-md-6">
+        <h3>Project Description</h3>
+        <div>
+            The point of our project is to provide a web mashup that will allow users to easily make food by searching up a recipe (by searching for either the name of the recipe or key ingredients) and watching a how-to-make video via YouTube. The user will also be able to buy any missing ingredients they have using Amazon and search up the nutrition information or what they’re making. Furthermore, the user will be able to upload a picture of their finished creation to Instagram/Twitter and an API will automatically come up with a caption for them.
+        </div>
+        <h3>Background Story</h3>
+        <div>
+            The user wants the “one stop shop” of food making that will allow them to easily make a food using either a recipe or a video (or both), search for nutrition information and buy missing ingredients. As a last bit of functionality, the user would also want to be able to upload the finished product onto social media. The user should expect a user friendly interface and a seamless mesh of the various different services. The main takeaway is that the user should enjoy the convenience and ease of cooking without having to go through many services to get what they need.
+        </div>
+    </div>
+    <div class="col-lg-6">
+        <h2>Customer Response</h2>
+        <div class="twitter-widget-holde pre-scrollable" style="height:400px">
+            <a class="twitter-timeline" href="https://twitter.com/MannanMendi?ref_src=twsrc%5Etfw">Tweets by MannanMendi</a>
+            <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <a id="single_image" href="image_big.jpg"><img src="image_small.jpg" alt="" /></a>
+</div>

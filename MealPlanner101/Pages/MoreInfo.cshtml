@@ -1,0 +1,47 @@
+﻿@page "{num:int?}"
+@model MoreInfoModel
+<h3>@Model.jObj_recipe["hits"][(Int32)@Model.Num]["recipe"]["label"]</h3>
+<script>
+
+    function openAmazon() {
+        window.open("https://www.amazon.com", "addtocart");
+    }
+
+</script>
+<div class="row">
+    <div class="col-md-5">
+        <img src="@Model.jObj_recipe["hits"][(Int32)@Model.Num]["recipe"]["image"]" alt="Image of the recipe here" style="min-height:400px;max-width:400px" />
+    </div>
+    <h3>Ingredients Required</h3>
+    <p class="text-muted">Check all that you wanna buy</p>
+    <form method="post">
+        @for (var i = 1; i <= @Model.jObj_recipe["hits"][(Int32)@Model.Num]["recipe"]["ingredientLines"].Count(); i++)
+        {
+            <div class="form-check">
+                <input class="form-check-input" name="AreChecked" type="checkbox" value="@i" />
+                <label class="form-check-label" for="checkbox">
+                    @Model.jObj_recipe["hits"][(Int32)@Model.Num]["recipe"]["ingredientLines"][i - 1]
+                </label>
+            </div>
+
+        }
+        <button onclick="openAmazon()">Add To Cart</button>
+        @Html.Raw(ViewData["AddToCart"])
+    </form>
+</div>
+<div class="row">
+    <h3>YouTube Videos of the Recipe:</h3>
+</div>
+<div class="row">
+    @for (var i = 1; i <= 3; i++)
+    {
+        <div class="card col-sm-4">
+            <a data-fancybox href="https://www.youtube.com/watch?v=@Model.jObj["items"][i]["id"]["videoId"]">
+                <img src="@Model.jObj["items"][i]["snippet"]["thumbnails"]["medium"]["url"]" class="card-img-top" alt="...">
+            </a>
+            <div class="card-body">
+                <h5 class="card-title">@Model.jObj["items"][i]["snippet"]["title"]</h5>
+            </div>
+        </div>
+    }
+</div>
